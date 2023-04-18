@@ -11,7 +11,6 @@ const handler = async (req, res) => {
 
   if (req.method === "POST") {
     const client = await connectToDatabase();
-    console.log(client);
 
     const db = client.db();
 
