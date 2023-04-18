@@ -7,9 +7,10 @@ const AddHeroForm = ({ onAddHero }) => {
   const [base, setBase] = useState();
   const [hp, setHp] = useState();
   const [armor, setArmor] = useState();
-  const [shields, setshields] = useState();
+  const [shield, setShield] = useState();
   const [passive, setPassive] = useState();
   const [ultimate, setUltimate] = useState();
+  const [image, setImage] = useState();
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -20,10 +21,20 @@ const AddHeroForm = ({ onAddHero }) => {
       baseOfOperations: base,
       hp: hp,
       armor: armor,
-      sheilds: shields,
+      shield: shield,
       passiveAbility: passive,
       ulimateAbility: ultimate,
+      image: image,
     });
+
+    setName("");
+    setBase("");
+    setHp(0);
+    setArmor(0);
+    setShield(0);
+    setPassive("");
+    setUltimate("");
+    setImage("");
   };
 
   return (
@@ -33,19 +44,15 @@ const AddHeroForm = ({ onAddHero }) => {
           Name
           <input
             value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
+            onChange={(e) => setName(e.target.value)}
             type="text"
           />
         </label>
         <label htmlFor="gender">
-          Gender{" "}
+          Gender
           <input
             value={gender}
-            onChange={(e) => {
-              setGender(e.target.value);
-            }}
+            onChange={(e) => setGender(e.target.value)}
             type="text"
           />
         </label>
@@ -53,9 +60,7 @@ const AddHeroForm = ({ onAddHero }) => {
           Role
           <select
             value={role}
-            onChange={(e) => {
-              setRole(e.target.value);
-            }}
+            onChange={(e) => setRole(e.target.value)}
             name="role"
             id="role"
           >
@@ -65,12 +70,10 @@ const AddHeroForm = ({ onAddHero }) => {
           </select>
         </label>
         <label htmlFor="Base of operations">
-          Base of operations{" "}
+          Base of operations
           <input
             value={base}
-            onChange={(e) => {
-              setBase(e.target.value);
-            }}
+            onChange={(e) => setBase(e.target.value)}
             type="text"
           />
         </label>
@@ -78,9 +81,7 @@ const AddHeroForm = ({ onAddHero }) => {
           HP
           <input
             value={hp}
-            onChange={(e) => {
-              setHp(e.target.value);
-            }}
+            onChange={(e) => setHp(e.target.value)}
             type="number"
           />
         </label>
@@ -95,12 +96,10 @@ const AddHeroForm = ({ onAddHero }) => {
           />
         </label>
         <label htmlFor="shields">
-          Shields{" "}
+          Shield
           <input
-            value={shields}
-            onChange={(e) => {
-              setshields(e.target.value);
-            }}
+            value={shield}
+            onChange={(e) => setShield(e.target.value)}
             type="number"
           />
         </label>
@@ -108,19 +107,23 @@ const AddHeroForm = ({ onAddHero }) => {
           Passive Ability
           <input
             value={passive}
-            onChange={(e) => {
-              setPassive(e.target.value);
-            }}
+            onChange={(e) => setPassive(e.target.value)}
             type="text"
           />
         </label>
         <label htmlFor="ultimate ability">
-          Ultimate Ability{" "}
+          Ultimate Ability
           <input
             value={ultimate}
-            onChange={(e) => {
-              setUltimate(e.target.value);
-            }}
+            onChange={(e) => setUltimate(e.target.value)}
+            type="text"
+          />
+        </label>
+        <label htmlFor="image">
+          Image Link
+          <input
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
             type="text"
           />
         </label>
