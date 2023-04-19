@@ -1,0 +1,31 @@
+.listItem {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+.listItemContainer {
+  border: 1px solid whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: calc(12.5% - 4px);
+  transition: flex-bases 0.1s ease;
+  box-shadow: inset 0 0 6px #000;
+}
+
+.correct {
+  background-color: green;
+}
+.incorrect {
+  background-color: red;
+}
+
+.higher {
+  background-image: url("../../public/images/up-arrow.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.lower {
+  background-color: red;
+}

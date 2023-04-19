@@ -20,8 +20,10 @@ export default function Home() {
   };
 
   const submitGuessHandler = async (heroName) => {
-    const hero = await getHeroByName(heroName);
-    console.log(hero);
+    const response = await getHeroByName(heroName);
+    console.log(response.data.hero);
+    console.log(guesses);
+    setGuesses((prevGuesses) => [...prevGuesses, response.data.hero]);
   };
   return (
     <>
@@ -36,7 +38,7 @@ export default function Home() {
         startNewGameHandler={startNewGameHandler}
       />
       <GuessForm onGuessHero={submitGuessHandler} />
-      <GuessList guesses={guesses} />
+      <GuessList heroToGuess={heroToGuess} guesses={guesses} />
     </>
   );
 }

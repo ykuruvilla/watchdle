@@ -1,10 +1,16 @@
-const GuessList = ({ guesses }) => {
+import GuessListItem from "../guess-list-item/guess-list-item";
+
+const GuessList = ({ heroToGuess, guesses }) => {
   if (guesses) {
     return (
       <div>
         <ul>
           {guesses.map((guess) => (
-            <GuessListItem guess={guess} key={guess._id} />
+            <GuessListItem
+              heroToGuess={heroToGuess}
+              guess={guess}
+              key={guess._id}
+            />
           ))}
         </ul>
       </div>
