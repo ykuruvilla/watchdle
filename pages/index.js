@@ -1,20 +1,27 @@
-import axios from "axios";
+import Hero from "../components/hero/hero";
+import GuessList from "../components/guess-list/guess-list";
+import { getHeroByName, getRandomHero } from "../utils/api/api-calls";
 import Head from "next/head";
 import { useState } from "react";
+import GuessForm from "@/components/guess-form/guess-form";
 
 export default function Home() {
-  const [heroToGuess, setHeroToGuess] = useState();
+  const [heroToGuess, setHeroToGuess] = useState(null);
+  const [guesses, setGuesses] = useState([]);
 
   const startNewGameHandler = async () => {
     try {
-      const response = await axios.get("api/hero/get-new-hero");
-      const {
-        data: { hero },
-      } = response;
-      setHeroToGuess(hero);
+      const randomHero = await getRandomHero();
+
+      setHeroToGuess(randomHero);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const submitGuessHandler = async (heroName) => {
+    const hero = await getHeroByName(heroName);
+    console.log(hero);
   };
   return (
     <>
@@ -24,7 +31,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <button onClick={startNewGameHandler}>Start</button>
+      <Hero
+        heroToGuess={heroToGuess}
+        startNewGameHandler={startNewGameHandler}
+      />
+      <GuessForm onGuessHero={submitGuessHandler} />
+      <GuessList guesses={guesses} />
     </>
   );
 }

@@ -22,10 +22,13 @@ const handler = async (req, res) => {
           .status(200)
           .json({ hero: randomHero, message: "Sucessfully retrieved hero" });
       } catch (error) {
+        client.close();
         res.status(500).json({ message: "Error- could not retrieve hero" });
+        return;
       }
     } catch (error) {
       res.status(500).json({ message: "Error connecting to database" });
+      return;
     }
   }
 };
