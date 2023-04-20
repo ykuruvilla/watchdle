@@ -3,7 +3,8 @@ import React from "react";
 import classes from "./guess-list-item.module.css";
 
 const GuessListItem = ({ heroToGuess, guess }) => {
-  const { name, image, role, hp, shield, baseOfOperations, armor } = guess;
+  const { name, gender, image, role, hp, shield, baseOfOperations, armor } =
+    guess;
 
   const compareGuess = (guessedHero, correctHero, propertyToCompare) => {
     if (guessedHero[propertyToCompare] === correctHero[propertyToCompare]) {
@@ -23,16 +24,19 @@ const GuessListItem = ({ heroToGuess, guess }) => {
 
   return (
     <li className={classes.listItem}>
-      <div className={classes.listItemContainer}>
+      <div className={classes.imageContainer}>
         <Image
           src={image}
           alt={`A portrait of ${name}`}
-          height={100}
-          width={100}
+          layout="fill"
+          objectFit="contain"
         />
       </div>
       <div className={compareGuess(guess, heroToGuess, "name")}>
         <p>{name}</p>
+      </div>
+      <div className={compareGuess(guess, heroToGuess, "gender")}>
+        <p>{gender}</p>
       </div>
       <div className={compareGuess(guess, heroToGuess, "role")}>
         <p>{role}</p>

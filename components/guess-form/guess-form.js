@@ -13,7 +13,6 @@ const GuessForm = ({ onGuessHero }) => {
     <div>
       <form onSubmit={formSubmitHandler}>
         <label htmlFor="hero">
-          Hero
           <input
             value={guessedHero}
             onChange={(e) => setGuessedHero(e.target.value)}
@@ -22,7 +21,7 @@ const GuessForm = ({ onGuessHero }) => {
             id="hero"
           />
         </label>
-        <button>Submit</button>
+        {/* <button type="submit">Submit</button> */}
       </form>
     </div>
   );

@@ -2,28 +2,34 @@ import Hero from "../components/hero/hero";
 import GuessList from "../components/guess-list/guess-list";
 import { getHeroByName, getRandomHero } from "../utils/api/api-calls";
 import Head from "next/head";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import GuessForm from "@/components/guess-form/guess-form";
+import Loader from "@/components/loader/loader";
 
 export default function Home() {
   const [heroToGuess, setHeroToGuess] = useState(null);
   const [guesses, setGuesses] = useState([]);
+  const [numberOfGuesses, setNumberOfGuesses] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  const startNewGameHandler = async () => {
+  const getNewHero = async () => {
     try {
-      const randomHero = await getRandomHero();
-
-      setHeroToGuess(randomHero);
+      const newHero = await getRandomHero();
+      setHeroToGuess(newHero);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
 
+  useEffect(() => {
+    getNewHero();
+  }, []);
+
   const submitGuessHandler = async (heroName) => {
     const response = await getHeroByName(heroName);
-    console.log(response.data.hero);
-    console.log(guesses);
     setGuesses((prevGuesses) => [...prevGuesses, response.data.hero]);
+    setNumberOfGuesses((prevNumber) => prevNumber + 1);
   };
   return (
     <>
@@ -33,12 +39,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero
+      <Hero numberOfGuesses={numberOfGuesses} />
+      <Loader loading={loading} />
+      {heroToGuess && <GuessForm onGuessHero={submitGuessHandler} />}
+      <GuessList
         heroToGuess={heroToGuess}
-        startNewGameHandler={startNewGameHandler}
+        numberOfGuesses={numberOfGuesses}
+        guesses={guesses}
       />
-      <GuessForm onGuessHero={submitGuessHandler} />
-      <GuessList heroToGuess={heroToGuess} guesses={guesses} />
+      {heroToGuess && <p>{heroToGuess.name}</p>}
     </>
   );
 }

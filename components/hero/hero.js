@@ -1,13 +1,11 @@
-const Hero = ({ startNewGameHandler, heroToGuess }) => {
+import classes from "./hero.module.scss";
+const Hero = ({ numberOfGuesses }) => {
   return (
     <>
-      <div>
-        <h2>Guess the Overwatch Hero!</h2>
-        {!heroToGuess && <p>Press the start button to begin</p>}
-      </div>
-      <div>
-        {!heroToGuess && (
-          <button onClick={startNewGameHandler}>Start New Game</button>
+      <div className={classes.hero}>
+        <h2 className={classes.hero__heading}>Guess the Overwatch Hero!</h2>
+        {numberOfGuesses === 0 && (
+          <p className={classes.hero__copy}>Enter a hero to begin</p>
         )}
       </div>
     </>

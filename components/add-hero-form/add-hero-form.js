@@ -23,7 +23,7 @@ const AddHeroForm = ({ onAddHero }) => {
       armor: armor,
       shield: shield,
       passiveAbility: passive,
-      ulimateAbility: ultimate,
+      ultimateAbility: ultimate,
       image: image,
     });
 

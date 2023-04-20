@@ -1,0 +1,18 @@
+@import "../../styles/partials/breakpoints";
+.header {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+
+  height: 200px;
+
+  &__title {
+    font-size: 4rem;
+    color: #f99e1a;
+    @include tablet {
+      font-size: 6rem;
+    }
+  }
+}
