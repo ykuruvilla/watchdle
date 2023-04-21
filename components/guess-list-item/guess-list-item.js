@@ -1,10 +1,19 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
-import classes from "./guess-list-item.module.css";
+import classes from "./guess-list-item.module.scss";
 
 const GuessListItem = ({ heroToGuess, guess }) => {
-  const { name, gender, image, role, hp, shield, baseOfOperations, armor } =
-    guess;
+  const {
+    name,
+    gender,
+    image,
+    role,
+    hp,
+    shield,
+    baseOfOperations,
+    armor,
+    passiveAbility,
+  } = guess;
 
   const compareGuess = (guessedHero, correctHero, propertyToCompare) => {
     if (guessedHero[propertyToCompare] === correctHero[propertyToCompare]) {
@@ -23,7 +32,7 @@ const GuessListItem = ({ heroToGuess, guess }) => {
   };
 
   return (
-    <li className={classes.listItem}>
+    <>
       <div className={classes.imageContainer}>
         <Image
           src={image}
@@ -41,6 +50,9 @@ const GuessListItem = ({ heroToGuess, guess }) => {
       <div className={compareGuess(guess, heroToGuess, "role")}>
         <p>{role}</p>
       </div>
+      <div className={compareGuess(guess, heroToGuess, "passiveAbility")}>
+        <p>{passiveAbility === "N/A" ? "No" : "Yes"}</p>
+      </div>
       <div className={compareGuess(guess, heroToGuess, "baseOfOperations")}>
         <p>{baseOfOperations}</p>
       </div>
@@ -53,10 +65,12 @@ const GuessListItem = ({ heroToGuess, guess }) => {
         <span>{isHigherOrLower(guess, heroToGuess, "armor")}</span>
       </div>
       <div className={compareGuess(guess, heroToGuess, "shield")}>
-        <p>{shield}</p>
-        <span>{isHigherOrLower(guess, heroToGuess, "shield")}</span>
+        <p>
+          {shield}
+          <span>{isHigherOrLower(guess, heroToGuess, "shield")}</span>
+        </p>
       </div>
-    </li>
+    </>
   );
 };
 

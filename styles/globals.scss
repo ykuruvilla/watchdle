@@ -7,11 +7,12 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: whitesmoke;
+  color: black;
   height: 100%;
 }
 
 main {
+  padding-top: 2rem;
   background-image: url("/images/background.jpg");
   background-position: center;
   background-repeat: no-repeat;

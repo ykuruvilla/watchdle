@@ -9,8 +9,9 @@ import Loader from "@/components/loader/loader";
 export default function Home() {
   const [heroToGuess, setHeroToGuess] = useState(null);
   const [guesses, setGuesses] = useState([]);
-  const [numberOfGuesses, setNumberOfGuesses] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [hasWon, setHasWon] = useState(false);
+  const [error, setError] = useState(false);
 
   const getNewHero = async () => {
     try {
@@ -27,27 +28,43 @@ export default function Home() {
   }, []);
 
   const submitGuessHandler = async (heroName) => {
-    const response = await getHeroByName(heroName);
-    setGuesses((prevGuesses) => [...prevGuesses, response.data.hero]);
-    setNumberOfGuesses((prevNumber) => prevNumber + 1);
+    setError(false);
+    try {
+      const response = await getHeroByName(heroName);
+      if (response) {
+        setGuesses((prevGuesses) => [...prevGuesses, response.data.hero]);
+      }
+      if (response.data.hero.name === heroToGuess.name) {
+        setHasWon(true);
+      }
+    } catch (error) {
+      setError(true);
+    }
+  };
+
+  const restartGameHandler = async () => {
+    try {
+      const newHero = await getNewHero();
+      setHasWon(false);
+      setGuesses([]);
+    } catch (error) {}
   };
   return (
     <>
+      {hasWon && <p>Winner</p>}
       <Head>
         <title>Watchdle</title>
         <meta name="description" content="An Overwatch game based on Worlde" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero numberOfGuesses={numberOfGuesses} />
+      <Hero heroToGuess={heroToGuess} guesses={guesses} hasWon={hasWon} />
       <Loader loading={loading} />
-      {heroToGuess && <GuessForm onGuessHero={submitGuessHandler} />}
-      <GuessList
-        heroToGuess={heroToGuess}
-        numberOfGuesses={numberOfGuesses}
-        guesses={guesses}
-      />
+      {!hasWon && heroToGuess && <GuessForm onGuessHero={submitGuessHandler} />}
+      <GuessList heroToGuess={heroToGuess} guesses={guesses} hasWon={hasWon} />
       {heroToGuess && <p>{heroToGuess.name}</p>}
+      {error && <h2>No hero with that name found</h2>}
+      {hasWon && <button onClick={restartGameHandler}>Play Again</button>}
     </>
   );
 }

@@ -1,19 +1,66 @@
+@import "../../styles/partials/breakpoints";
+
 .hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: black;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  background-color: rgba($color: black, $alpha: 0.5);
+  color: white;
+  margin: 0 2rem;
+  border-radius: 30px;
+
+  &__container {
+    margin: 0 auto;
+
+    @include tablet {
+      max-width: 76.8rem;
+    }
+  }
 
   &__heading {
     font-size: 3rem;
+    text-align: center;
+
+    @include tablet {
+      font-size: 3.5rem;
+    }
   }
 
   &__copy {
-    font-size: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 2.6rem;
+    text-align: center;
+
+    @include tablet {
+      font-size: 3rem;
+    }
   }
 
-  &__buttonContainer {
-    display: flex;
-    justify-content: center;
+  &__clue {
+    font-size: 2rem;
+    padding-bottom: 1.5rem;
+
+    @include tablet {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    background-color: white;
+    padding: 1rem 3rem;
+    border: 2px solid white;
+    border-radius: 20px;
+
+    @include tablet {
+      font-size: 1.8rem;
+    }
+
+    &:hover {
+      background-color: #f99e1a;
+    }
   }
 }

@@ -1,0 +1,27 @@
+@import "../../styles/partials/breakpoints";
+.form {
+  padding-top: 1rem;
+  margin: 0 3rem;
+
+  @include tablet {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    border: 3px solid white;
+    padding: 8px;
+    border-radius: 4px;
+    width: 100%;
+    &:focus {
+      outline: none;
+      background-clip: padding-box;
+      border: 3px solid #f99e1a;
+    }
+
+    @include tablet {
+      min-width: 26rem;
+    }
+  }
+}
