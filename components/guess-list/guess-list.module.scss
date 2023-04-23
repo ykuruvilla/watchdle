@@ -1,0 +1,40 @@
+@import "../../styles/partials/breakpoints";
+
+.guesses {
+  overflow-x: auto;
+  margin-top: 40px;
+  min-width: 350px;
+  background-color: rgba($color: black, $alpha: 0.5);
+  border-radius: 10px;
+  margin: 2rem 2rem 0;
+  padding-bottom: 1rem;
+  @include tablet {
+    margin: 2rem auto 0;
+    width: 76.8rem;
+  }
+
+  @include desktop {
+    width: 108rem;
+  }
+}
+
+.heading {
+  &__container {
+    margin-top: 1rem;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__item {
+    color: white;
+    font-size: 1.6rem;
+    margin: 0 10px 10px;
+    border-bottom: 3px solid white;
+    text-align: center;
+    flex-basis: 12.5%;
+    min-width: 50px;
+    @include desktop {
+      font-size: 1.8rem;
+    }
+  }
+}

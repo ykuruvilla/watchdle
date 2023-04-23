@@ -1,0 +1,14 @@
+@import "../../styles/partials/breakpoints";
+.logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  object-fit: contain;
+  height: 10rem;
+  width: 10rem;
+
+  @include tablet {
+    height: 14rem;
+    width: 14rem;
+  }
+}
