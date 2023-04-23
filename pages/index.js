@@ -33,7 +33,6 @@ export default function Home() {
       const response = await getHeroByName(heroName);
       if (response) {
         setGuesses((prevGuesses) => [...prevGuesses, response.data.hero]);
-        setShowAnimation(true);
       }
       if (response.data.hero.name === heroToGuess.name) {
         setHasWon(true);
@@ -62,7 +61,9 @@ export default function Home() {
       <Hero heroToGuess={heroToGuess} guesses={guesses} hasWon={hasWon} />
       <Loader loading={loading} />
       {!hasWon && heroToGuess && <GuessForm onGuessHero={submitGuessHandler} />}
-      <GuessList heroToGuess={heroToGuess} guesses={guesses} hasWon={hasWon} />
+      {guesses.length > 0 && (
+        <GuessList heroToGuess={heroToGuess} guesses={guesses} />
+      )}
       {heroToGuess && <p>{heroToGuess.name}</p>}
       {error && <h2>No hero with that name found</h2>}
       {hasWon && <button onClick={restartGameHandler}>Play Again</button>}

@@ -1,14 +1,12 @@
 import GuessListItem from "../guess-list-item/guess-list-item";
 import classes from "./guess-list.module.scss";
 
-const GuessList = ({ heroToGuess, guesses, numberOfGuesses, hasWon }) => {
+const GuessList = ({ heroToGuess, guesses }) => {
   if (guesses) {
     return (
       <div className={classes.guesses}>
         <div className={classes.heading__container}>
           <h3 className={classes.heading__item}>Hero</h3>
-          <h3 className={classes.heading__item}>Name</h3>
-
           <h3 className={classes.heading__item}>Gender</h3>
           <h3 className={classes.heading__item}>Role</h3>
           <h3 className={classes.heading__item}>Has Passive Ability?</h3>

@@ -41,9 +41,6 @@ const GuessListItem = ({ heroToGuess, guess }) => {
           objectFit="contain"
         />
       </div>
-      <div className={compareGuess(guess, heroToGuess, "name")}>
-        <p>{name}</p>
-      </div>
       <div className={compareGuess(guess, heroToGuess, "gender")}>
         <p>{gender}</p>
       </div>

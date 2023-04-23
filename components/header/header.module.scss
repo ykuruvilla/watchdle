@@ -2,11 +2,28 @@
 .header {
   padding-top: 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   background-color: black;
-
   height: 200px;
+  position: relative;
+
+  @include tablet {
+    height: 250px;
+  }
+
+  &__logoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+  }
+
+  &__iconContainer {
+    position: absolute;
+    right: 30px;
+  }
 
   &__title {
     font-size: 4rem;
@@ -14,5 +31,10 @@
     @include tablet {
       font-size: 6rem;
     }
+  }
+
+  &__icon {
+    color: white;
+    font-size: 4rem;
   }
 }
