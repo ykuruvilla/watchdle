@@ -6,7 +6,7 @@ const Loader = ({ loading }) => {
   return (
     <div className={classes.loader__container}>
       <MoonLoader
-        color="#405275"
+        color="#ffffff"
         size={80}
         loading={loading}
         aria-label="Loading Spinner"
