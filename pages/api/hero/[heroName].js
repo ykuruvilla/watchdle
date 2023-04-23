@@ -1,4 +1,4 @@
-import { capitaliseString } from "@/helpers";
+import { capitaliseString } from "@/utils/helpers";
 import { connectToDatabase } from "@/utils/db/db";
 
 const collectionName = process.env.MONGO_COLLECTION_NAME;
@@ -16,7 +16,7 @@ const handler = async (req, res) => {
 
       try {
         foundHero = await db
-          .collection(collectionName)
+          .collection("heroes")
           .findOne({ name: capitalisedName });
         if (!foundHero) {
           res
