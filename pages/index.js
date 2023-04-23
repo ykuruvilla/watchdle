@@ -5,8 +5,9 @@ import Head from "next/head";
 import { use, useEffect, useState } from "react";
 import GuessForm from "@/components/guess-form/guess-form";
 import Loader from "@/components/loader/loader";
+import WinNotification from "@/components/win-notification/win-notification";
 
-export default function Home() {
+const Home = () => {
   const [heroToGuess, setHeroToGuess] = useState(null);
   const [guesses, setGuesses] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -51,7 +52,6 @@ export default function Home() {
   };
   return (
     <>
-      {hasWon && <p>Winner</p>}
       <Head>
         <title>Watchdle</title>
         <meta name="description" content="An Overwatch game based on Worlde" />
@@ -71,7 +71,16 @@ export default function Home() {
         <GuessList heroToGuess={heroToGuess} guesses={guesses} />
       )}
       {heroToGuess && <p>{heroToGuess.name}</p>}
-      {hasWon && <button onClick={restartGameHandler}>Play Again</button>}
+      {hasWon && (
+        <WinNotification
+          restartGameHandler={restartGameHandler}
+          correctHero={guesses.slice(-1)}
+          numberOfGuesses={guesses.length}
+          hasWon={hasWon}
+        />
+      )}
     </>
   );
-}
+};
+
+export default Home;

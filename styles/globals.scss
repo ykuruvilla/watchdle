@@ -12,12 +12,12 @@ body {
 }
 
 main {
-  padding-top: 2rem;
+  padding: 2rem 0 4rem 0;
   background-image: url("/images/background.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: calc(100vh - 200px);
+  min-height: calc(100vh - 200px);
 }
 
 *,

@@ -4,7 +4,6 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const HowToPlayModal = ({ showModal, closeModalHandler }) => {
   const zarya = {
-    _id: "643ed4f0ac44fa24b58b03d5",
     name: "Zarya",
     gender: "Female",
     role: "Tank",
@@ -12,30 +11,17 @@ const HowToPlayModal = ({ showModal, closeModalHandler }) => {
     hp: 250,
     armor: 0,
     shield: 225,
-    passiveAbility: "Energy",
-    image:
-      "https://d15f34w2p8l1cc.cloudfront.net/overwatch/8819ba85823136640d8eba2af6fd7b19d46b9ee8ab192a4e06f396d1e5231f7a.png",
-    ultimateAbility: "Graviton Surge",
   };
 
   const sigma = {
-    _id: "643ed430ac44fa24b58b03d2",
     name: "Sigma",
     gender: "Male",
     role: "Tank",
-    baseOfOperations: "Netherlands",
+    baseOfOperations: "Holland",
     hp: 350,
     armor: 0,
     shield: 200,
-    passiveAbility: "N/A",
-    image:
-      "https://d15f34w2p8l1cc.cloudfront.net/overwatch/cd7a4c0a0df8924afb2c9f6df864ed040f20250440c36ca2eb634acf6609c5e4.png",
-    ultimateAbility: "Gravitic Flux",
   };
-
-  //   if (!showModal) {
-  //     return null;
-  //   }
   return (
     <div
       className={

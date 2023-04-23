@@ -9,4 +9,8 @@ const AddHeroPage = () => {
   return <AddHeroForm onAddHero={addNewHero} />;
 };
 
+export const getServerSideProps = async () => {
+  return { redirect: { destination: "/", permanent: true } };
+};
+
 export default AddHeroPage;
