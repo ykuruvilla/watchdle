@@ -7,7 +7,7 @@ const handler = async (req, res) => {
     try {
       const client = await connectToDatabase();
       const db = client.db();
-      const collection = db.collection("heroes");
+      const collection = db.collection(collectionName);
 
       try {
         const heroCount = await collection.countDocuments();
