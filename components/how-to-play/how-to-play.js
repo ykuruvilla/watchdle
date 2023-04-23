@@ -91,20 +91,20 @@ const HowToPlayModal = ({ showModal, closeModalHandler }) => {
         Gender: <span className={classes.modal__contentRed}> Red</span>
       </h6>
       <p className={classes.modal__content}>
-        It is not a match, Sigma is male while Zarya is female.
+        It isn't a match, Sigma is male while Zarya is female.
       </p>
       <h6 className={classes.modal__subtitle}>
         Role: <span className={classes.modal__contentGreen}> Green</span>
       </h6>
       <p className={classes.modal__content}>
-        It is a match, they are both tanks
+        It's a match, they are both tanks
       </p>
       <h6 className={classes.modal__subtitle}>
         Has Passive Ability?:
         <span className={classes.modal__contentRed}> Red</span>
       </h6>
       <p className={classes.modal__content}>
-        It is not a match, Sigma doesn't have a passive ability while Zarya does
+        It isn't a match, Sigma doesn't have a passive ability while Zarya does
         (Energy).
       </p>
       <h6 className={classes.modal__subtitle}>
@@ -112,29 +112,29 @@ const HowToPlayModal = ({ showModal, closeModalHandler }) => {
         <span className={classes.modal__contentRed}> Red</span>
       </h6>
       <p className={classes.modal__content}>
-        It is not a match, Sigma is based in Netherlands while Zarya is based in
-        Russia
+        It isn't a match, Sigma is based in Netherlands while Zarya is based in
+        Russia.
       </p>
       <h6 className={classes.modal__subtitle}>
         HP:
         <span className={classes.modal__contentRed}> Red</span> and a down arrow
       </h6>
       <p className={classes.modal__content}>
-        It is not a match, Sigma has 350HP while Zarya has 250HP.
+        It isn't a match, Sigma has 350HP while Zarya has 250HP.
       </p>
       <h6 className={classes.modal__subtitle}>
         Armor:
         <span className={classes.modal__contentGreen}> Green</span>
       </h6>
       <p className={classes.modal__content}>
-        It is not a match, they both have 0 armor.
+        It's a match, they both have 0 armor.
       </p>
       <h6 className={classes.modal__subtitle}>
         HP:
         <span className={classes.modal__contentRed}> Red</span> and an up arrow
       </h6>
       <p className={classes.modal__content}>
-        It is not a match, Sigma has 200 shields while Zarya has 225.
+        It isn't a match, Sigma has 200 shields while Zarya has 225.
       </p>
     </div>
   );

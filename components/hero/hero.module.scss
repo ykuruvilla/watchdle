@@ -55,11 +55,16 @@
     border: 2px solid white;
     border-radius: 20px;
 
+    &:disabled {
+      cursor: not-allowed;
+      background-color: #43484c;
+    }
+
     @include tablet {
       font-size: 1.8rem;
     }
 
-    &:hover {
+    &:not(:disabled):hover {
       background-color: #f99e1a;
     }
   }

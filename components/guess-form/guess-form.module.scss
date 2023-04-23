@@ -14,6 +14,20 @@
     padding: 8px;
     border-radius: 4px;
     width: 100%;
+
+    @include tablet {
+      width: 337px;
+    }
+
+    &Error {
+      border: 3px solid red;
+    }
+
+    &Container {
+      @include tablet {
+      }
+    }
+
     &:focus {
       outline: none;
       background-clip: padding-box;
@@ -22,6 +36,15 @@
 
     @include tablet {
       min-width: 26rem;
+    }
+  }
+
+  &__error {
+    color: red;
+    background-color: black;
+    font-size: 1.2rem;
+
+    @include tablet {
     }
   }
 }

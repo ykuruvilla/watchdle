@@ -11,7 +11,7 @@ export default function Home() {
   const [guesses, setGuesses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [hasWon, setHasWon] = useState(false);
-  const [error, setError] = useState(false);
+  const [heroError, setHeroError] = useState(false);
 
   const getNewHero = async () => {
     try {
@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   const submitGuessHandler = async (heroName) => {
-    setError(false);
+    setHeroError(false);
     try {
       const response = await getHeroByName(heroName);
       if (response) {
@@ -38,7 +38,7 @@ export default function Home() {
         setHasWon(true);
       }
     } catch (error) {
-      setError(true);
+      setHeroError(true);
     }
   };
 
@@ -60,12 +60,17 @@ export default function Home() {
       </Head>
       <Hero heroToGuess={heroToGuess} guesses={guesses} hasWon={hasWon} />
       <Loader loading={loading} />
-      {!hasWon && heroToGuess && <GuessForm onGuessHero={submitGuessHandler} />}
+      {!hasWon && heroToGuess && (
+        <GuessForm
+          guesses={guesses}
+          heroError={heroError}
+          onGuessHero={submitGuessHandler}
+        />
+      )}
       {guesses.length > 0 && (
         <GuessList heroToGuess={heroToGuess} guesses={guesses} />
       )}
       {heroToGuess && <p>{heroToGuess.name}</p>}
-      {error && <h2>No hero with that name found</h2>}
       {hasWon && <button onClick={restartGameHandler}>Play Again</button>}
     </>
   );

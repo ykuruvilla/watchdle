@@ -12,10 +12,15 @@
     margin: 2rem auto 0;
     width: 76.8rem;
   }
+
+  @include desktop {
+    width: 108rem;
+  }
 }
 
 .heading {
   &__container {
+    margin-top: 1rem;
     display: flex;
     align-items: flex-end;
   }
@@ -28,5 +33,8 @@
     text-align: center;
     flex-basis: 12.5%;
     min-width: 50px;
+    @include desktop {
+      font-size: 1.8rem;
+    }
   }
 }

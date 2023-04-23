@@ -1,3 +1,5 @@
+@import "../../styles/partials/breakpoints";
+
 .table {
   &__row {
     overflow-x: auto;
@@ -15,6 +17,10 @@
     width: 10rem;
     min-width: 5rem;
     font-size: 1.2rem;
+
+    @include desktop {
+      font-size: 1.8rem;
+    }
 
     & > p {
       text-align: center;
