@@ -16,7 +16,7 @@ const handler = async (req, res) => {
 
       try {
         foundHero = await db
-          .collection("heroes")
+          .collection(collectionName)
           .findOne({ name: capitalisedName });
         if (!foundHero) {
           res
