@@ -70,7 +70,6 @@ const Home = () => {
       {guesses.length > 0 && (
         <GuessList heroToGuess={heroToGuess} guesses={guesses} />
       )}
-      {heroToGuess && <p>{heroToGuess.name}</p>}
       {hasWon && (
         <WinNotification
           restartGameHandler={restartGameHandler}
