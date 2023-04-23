@@ -1,25 +1,32 @@
-.listItemContainer {
-  flex-basis: 11.11%;
-  border: 1px solid whitesmoke;
-  display: flex;
-  margin: 0 10px;
-  justify-content: center;
-  min-width: 50px;
-}
+.table {
+  &__row {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
 
-.imageContainer {
-  flex-basis: 11.11%;
-  border: 1px solid whitesmoke;
-  margin: 0 10px;
-  position: relative;
-  height: 5rem;
-  width: 5rem;
-  min-width: 50px;
+  &__element {
+    flex-basis: 11.11%;
+    border: 1px solid whitesmoke;
+    display: flex;
+    margin: 0 10px;
+    justify-content: center;
+    align-items: center;
+    min-width: 50px;
+    font-size: 1.3rem;
+  }
+
+  &__image {
+    border: none;
+    position: relative;
+    height: 5rem;
+    width: 5rem;
+  }
 }
 
 .correct {
-  background-color: green;
+  background-color: lime;
 }
 .incorrect {
-  background-color: red;
+  background-color: orangered;
 }

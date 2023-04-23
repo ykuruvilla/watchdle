@@ -17,15 +17,10 @@ const GuessList = ({ heroToGuess, guesses, numberOfGuesses, hasWon }) => {
           <h3 className={classes.heading__item}>Armor</h3>
           <h3 className={classes.heading__item}>Shields</h3>
         </div>
-        <div className={classes.guesses__container}>
-          {guesses.map((guess) => (
-            <GuessListItem
-              heroToGuess={heroToGuess}
-              guess={guess}
-              key={guess._id}
-            />
-          ))}
-        </div>
+
+        {guesses.map((guess, index) => (
+          <GuessListItem heroToGuess={heroToGuess} guess={guess} key={index} />
+        ))}
       </div>
     );
   }

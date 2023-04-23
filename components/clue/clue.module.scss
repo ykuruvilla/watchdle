@@ -1,5 +1,10 @@
+@import "../../styles/partials/breakpoints";
 .clue {
   padding: 1.2rem 0;
   font-size: 1.8rem;
   text-align: center;
+
+  @include tablet {
+    font-size: 2.2rem;
+  }
 }

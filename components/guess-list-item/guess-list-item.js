@@ -17,9 +17,9 @@ const GuessListItem = ({ heroToGuess, guess }) => {
 
   const compareGuess = (guessedHero, correctHero, propertyToCompare) => {
     if (guessedHero[propertyToCompare] === correctHero[propertyToCompare]) {
-      return `${classes.listItemContainer} ${classes.correct}`;
+      return `${classes.table__element} ${classes.correct}`;
     }
-    return `${classes.listItemContainer} ${classes.incorrect}`;
+    return `${classes.table__element} ${classes.incorrect}`;
   };
 
   const isHigherOrLower = (guessedHero, correctHero, numberToCompare) => {
@@ -32,8 +32,8 @@ const GuessListItem = ({ heroToGuess, guess }) => {
   };
 
   return (
-    <>
-      <div className={classes.imageContainer}>
+    <div className={classes.table__row}>
+      <div className={`${classes.table__image} ${classes.table__element}`}>
         <Image
           src={image}
           alt={`A portrait of ${name}`}
@@ -70,7 +70,7 @@ const GuessListItem = ({ heroToGuess, guess }) => {
           <span>{isHigherOrLower(guess, heroToGuess, "shield")}</span>
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

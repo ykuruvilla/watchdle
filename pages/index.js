@@ -33,6 +33,7 @@ export default function Home() {
       const response = await getHeroByName(heroName);
       if (response) {
         setGuesses((prevGuesses) => [...prevGuesses, response.data.hero]);
+        setShowAnimation(true);
       }
       if (response.data.hero.name === heroToGuess.name) {
         setHasWon(true);
