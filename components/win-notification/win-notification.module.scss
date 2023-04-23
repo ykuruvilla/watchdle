@@ -1,0 +1,72 @@
+.notification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #fa9908;
+  background: linear-gradient(#f99e1a, #000);
+  margin: 0 auto;
+  max-width: 450px;
+  padding: 2rem 0;
+  color: white;
+  border-radius: 8px;
+
+  &__title {
+    font-size: 3.52rem;
+  }
+
+  &__info {
+    display: flex;
+    margin: 2rem 0;
+    align-items: center;
+  }
+
+  &__image {
+    border: 2px solid white;
+    margin-right: 2rem;
+  }
+
+  &__content {
+    font-size: 1.44rem;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: 2.4rem;
+  }
+
+  &__counter {
+    font-size: 1.44rem;
+
+    & > span {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__button {
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    background-color: black;
+    color: #fff;
+    animation-name: breathe;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes breathe {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.4);
+    }
+    50% {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 10px rgba(66, 133, 244, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.4);
+    }
+  }
+}

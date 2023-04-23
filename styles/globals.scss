@@ -1,0 +1,49 @@
+html {
+  font-size: 0.625rem;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: black;
+  height: 100%;
+}
+
+main {
+  padding: 2rem 0 4rem 0;
+  background-image: url("/images/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: calc(100vh - 200px);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h6,
+ul,
+p {
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+input,
+button,
+text {
+  font-family: inherit;
+}
