@@ -21,6 +21,8 @@ const HowToPlayModal = ({ showModal, closeModalHandler }) => {
     hp: 350,
     armor: 0,
     shield: 200,
+    image:
+      "https://d15f34w2p8l1cc.cloudfront.net/overwatch/bd9c8e634d89488459dfc1aeb21b602fa5c39aa05601a4167682f3a3fed4e0ee.png",
   };
   return (
     <div

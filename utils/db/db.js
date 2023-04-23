@@ -7,7 +7,7 @@ const clusterName = process.env.MONGO_CLUSTERNAME;
 
 export const connectToDatabase = async () => {
   const client = await MongoClient.connect(
-    `mongodb+srv://${user}:${password}@${dbName}.skj6m2x.mongodb.net/${clusterName}?retryWrites=true&w=majority`
+    `mongodb+srv://yashakuruvilla:xdJy1oo28ayFSVNs@cluster0.skj6m2x.mongodb.net/watchdle?retryWrites=true&w=majority`
   );
   return client;
 };
