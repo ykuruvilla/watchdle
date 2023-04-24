@@ -19,15 +19,6 @@
       width: 337px;
     }
 
-    &Error {
-      border: 3px solid red;
-    }
-
-    &Container {
-      @include tablet {
-      }
-    }
-
     &:focus {
       outline: none;
       background-clip: padding-box;
@@ -36,6 +27,39 @@
 
     @include tablet {
       min-width: 26rem;
+    }
+  }
+
+  &__inputContainer {
+    position: relative;
+  }
+
+  &__inputError {
+    border: 3px solid red;
+  }
+
+  &__autoContainer {
+    position: absolute;
+    width: 100%;
+    max-height: 25rem;
+    overflow-y: auto;
+  }
+
+  &__autoOption {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    font-size: 1.6rem;
+    color: whitesmoke;
+    padding: 1rem;
+
+    &:hover {
+      background-color: darkgrey;
+    }
+
+    & > span {
+      margin-left: 2rem;
     }
   }
 

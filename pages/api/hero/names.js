@@ -15,7 +15,11 @@ const handler = async (req, res) => {
           .project({ name: 1, image: 1 })
           .toArray();
 
-        res.status(200).json({ data: heroesWithNamesAndImage });
+        const sortedHeroes = heroesWithNamesAndImage.sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+
+        res.status(200).json({ data: sortedHeroes });
         client.close();
       } catch (error) {
         res

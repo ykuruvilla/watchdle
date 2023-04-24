@@ -28,3 +28,12 @@ export const getHeroByName = async (heroName) => {
     console.log(error);
   }
 };
+
+export const getHeroNames = async () => {
+  try {
+    const response = await axios.get("/api/hero/names");
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
