@@ -2,11 +2,7 @@ import classes from "./hero.module.scss";
 import Clue from "../clue/clue";
 import { useState } from "react";
 
-const Hero = ({ heroToGuess, hasWon, guesses }) => {
-  const [showClue, setShowClue] = useState(false);
-  const showClueHandler = () => {
-    setShowClue(true);
-  };
+const Hero = ({ heroToGuess, showClue, showClueHandler, guesses }) => {
   return (
     <div className={classes.hero__container}>
       <div className={classes.hero}>
