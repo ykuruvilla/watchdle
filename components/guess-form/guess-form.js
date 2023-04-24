@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import classes from "./guess-form.module.scss";
 
 const GuessForm = ({ guesses, onGuessHero, heroError }) => {
   const [guessedHero, setGuessedHero] = useState("");
   const [formError, setFormError] = useState(false);
   const [duplicateError, setDuplicateError] = useState(false);
+
+  const [display, setDisplay] = useState(false);
+  const [options, setOptions] = useState([]);
+  const [search, setSearch] = useState("");
 
   const formSubmitHandler = (e) => {
     e.preventDefault();

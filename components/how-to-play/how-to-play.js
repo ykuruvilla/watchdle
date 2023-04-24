@@ -42,7 +42,7 @@ const HowToPlayModal = ({ showModal, closeModalHandler }) => {
           Guess the hero from Blizzard's game 'Overwatch 2'
         </p>
         <p className={classes.modal__content}>
-          Simply type in the same of a hero and it will reveal its properties
+          Simply type in the name of a hero and it will reveal its properties.
         </p>
         <p className={classes.modal__content}>
           The color of the tiles willl change to show how close your guess was
@@ -50,11 +50,11 @@ const HowToPlayModal = ({ showModal, closeModalHandler }) => {
         </p>
         <p className={classes.modal__content}>
           <span className={classes.modal__contentGreen}>Green</span> indicates
-          the property is a correct match.
+          the property is a match.
         </p>
         <p className={classes.modal__content}>
           <span className={classes.modal__contentRed}>Red</span> indicates the
-          property is a correct match.
+          property is not a match.
         </p>
         <p className={classes.modal__content}>
           With arrows, it also indicates if the answer property is above or
