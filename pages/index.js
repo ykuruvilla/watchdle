@@ -2,7 +2,7 @@ import Hero from "../components/hero/hero";
 import GuessList from "../components/guess-list/guess-list";
 import { getHeroByName, getRandomHero } from "../utils/api/api-calls";
 import Head from "next/head";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import GuessForm from "@/components/guess-form/guess-form";
 import Loader from "@/components/loader/loader";
 import WinNotification from "@/components/win-notification/win-notification";
@@ -13,6 +13,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [hasWon, setHasWon] = useState(false);
   const [heroError, setHeroError] = useState(false);
+  const [showClue, setShowClue] = useState(false);
 
   const getNewHero = async () => {
     try {
@@ -43,11 +44,16 @@ const Home = () => {
     }
   };
 
+  const showClueHandler = () => {
+    setShowClue(true);
+  };
+
   const restartGameHandler = async () => {
     try {
       const newHero = await getNewHero();
       setHasWon(false);
       setGuesses([]);
+      setShowClue(false);
     } catch (error) {}
   };
   return (
@@ -58,7 +64,12 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Hero heroToGuess={heroToGuess} guesses={guesses} hasWon={hasWon} />
+      <Hero
+        showClueHandler={showClueHandler}
+        heroToGuess={heroToGuess}
+        guesses={guesses}
+        showClue={showClue}
+      />
       <Loader loading={loading} />
       {!hasWon && heroToGuess && (
         <GuessForm
