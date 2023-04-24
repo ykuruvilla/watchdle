@@ -119,7 +119,7 @@ const GuessForm = ({ guesses, onGuessHero, heroError }) => {
                       onClick={() => {
                         handleDropdownClick(hero.name);
                       }}
-                      key={hero.index}
+                      key={hero._id}
                       tabIndex="0"
                     >
                       <Image
