@@ -10,7 +10,7 @@ export const createNewHeroInDb = async (heroData) => {
 
 export const getRandomHero = async () => {
   try {
-    const response = await axios.get("/api/hero/get-random-hero");
+    const response = await axios.get("/api/hero/random");
     const {
       data: { hero },
     } = response;
@@ -23,6 +23,15 @@ export const getRandomHero = async () => {
 export const getHeroByName = async (heroName) => {
   try {
     const response = await axios.get(`/api/hero/${heroName}`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getHeroNames = async () => {
+  try {
+    const response = await axios.get("/api/hero/names");
     return response;
   } catch (error) {
     console.log(error);
