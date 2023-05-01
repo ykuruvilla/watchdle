@@ -31,6 +31,17 @@ const GuessListItem = ({ heroToGuess, guess }) => {
     }
   };
 
+  const comparePassiveAbilities = (guessedHero, correctHero) => {
+    if (
+      guessedHero.passiveAbility === correctHero.passiveAbility ||
+      (guessedHero.passiveAbility !== "N/A" &&
+        correctHero.passiveAbility !== "N/A")
+    ) {
+      return `${classes.table__element} ${classes.correct}`;
+    }
+    return `${classes.table__element} ${classes.incorrect}`;
+  };
+
   return (
     <div className={classes.table__row}>
       <div className={`${classes.table__image} ${classes.table__element}`}>
@@ -47,7 +58,7 @@ const GuessListItem = ({ heroToGuess, guess }) => {
       <div className={compareGuess(guess, heroToGuess, "role")}>
         <p>{role}</p>
       </div>
-      <div className={compareGuess(guess, heroToGuess, "passiveAbility")}>
+      <div className={comparePassiveAbilities(guess, heroToGuess)}>
         <p>{passiveAbility === "N/A" ? "No" : "Yes"}</p>
       </div>
       <div className={compareGuess(guess, heroToGuess, "baseOfOperations")}>
